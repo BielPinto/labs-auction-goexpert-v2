@@ -1,6 +1,41 @@
 # labs-auction-goexpert-v2
 
 
+## Como rodar o projeto em ambiente de desenvolvimento
+
+### Pré-requisitos
+
+*   Docker e Docker Compose
+*   Go 1.20+
+
+### Executando a infraestrutura
+
+Para iniciar o banco de dados MongoDB necessário para a aplicação e os testes, execute:
+
+```bash
+docker-compose up -d
+```
+
+### Executando os testes
+
+Para validar a funcionalidade de fechamento automático do leilão:
+
+```bash
+go test -v ./internal/infra/database/auction/
+```
+
+### Executando a aplicação
+
+Para rodar a API:
+
+```bash
+go run cmd/auction/main.go
+```
+
+Certifique-se de que as variáveis de ambiente necessárias (como as de conexão com o banco) estejam configuradas corretamente no arquivo `.env` dentro de `cmd/auction/`.
+
+
+
 Objetivo: Adicionar uma nova funcionalidade ao projeto já existente para o leilão fechar automaticamente a partir de um tempo definido.
 
 Clone o seguinte repositório: clique para acessar o repositório.
