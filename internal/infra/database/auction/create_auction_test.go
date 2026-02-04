@@ -36,7 +36,7 @@ func TestAuctionCloseAutomatically(t *testing.T) {
 	auctionID := "test-auction-auto-close"
 	// Ensure cleanup
 	db.Collection("auctions").DeleteOne(ctx, bson.M{"_id": auctionID})
-	// defer db.Collection("auctions").DeleteOne(ctx, bson.M{"_id": auctionID})
+	defer db.Collection("auctions").DeleteOne(ctx, bson.M{"_id": auctionID})
 
 	auctionEntity := &auction_entity.Auction{
 		Id:          auctionID,
